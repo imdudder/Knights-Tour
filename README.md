@@ -1,2 +1,2 @@
 # Knights-Tour
- Finds a solution to the Knights Tour puzzle. Given a chessboard and a Knight piece, traverse every square on the board, touching each one only once.
+ This program finds a solution to the Knight's Tour puzzle. In this puzzle, a Knight piece must traverse every square on a chessboard, touching each square only once. This program uses a standard 8x8 chessboard. Once the program is ran, it will ask the user to enter a row and column for the knight to start on, with row 0 column 0 being the top-left square, and row 7 column 7 being the bottom-right square.

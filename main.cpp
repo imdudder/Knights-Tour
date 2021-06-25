@@ -57,6 +57,10 @@ bool moveKnight(int row, int col, int moveNum)
     // Make sure current coordinates are on the board
     if (row >= 0 && row < BOARDSIZE && col >= 0 && col < BOARDSIZE) {
         board[row][col] = moveNum;                      // Mark the current move
+        if (moveNum == 64) {
+            done = true;
+            return true;
+        }
         //outputBoard();
         tries++;                                        // Increment try counter
         bool successfulMove = false;
@@ -71,7 +75,7 @@ bool moveKnight(int row, int col, int moveNum)
         }
 
         if (row - 2 >= 0 && col - 1 >= 0 && board[row-2][col-1] == 0) {
-            moveKnight(row - 2, col - 1, moveNum + 1);
+            successfulMove = moveKnight(row - 2, col - 1, moveNum + 1);
             if (!successfulMove) {
                 board[row - 2][col - 1] = 0;
                 //outputBoard();
@@ -79,7 +83,7 @@ bool moveKnight(int row, int col, int moveNum)
         }
 
         if (row - 2 >= 0 && col + 1 < BOARDSIZE && board[row-2][col+1] == 0) {
-            moveKnight(row - 2, col + 1, moveNum + 1);
+            successfulMove = moveKnight(row - 2, col + 1, moveNum + 1);
             if (!successfulMove) {
                 board[row - 2][col + 1] = 0;
                 //outputBoard();
@@ -87,7 +91,7 @@ bool moveKnight(int row, int col, int moveNum)
         }
 
         if (row - 1 >= 0 && col + 2 < BOARDSIZE && board[row-1][col+2] == 0) {
-            moveKnight(row - 1, col + 2, moveNum + 1);
+            successfulMove = moveKnight(row - 1, col + 2, moveNum + 1);
             if (!successfulMove) {
                 board[row - 1][col + 2] = 0;
                 //outputBoard();
@@ -95,7 +99,7 @@ bool moveKnight(int row, int col, int moveNum)
         }
 
         if (row + 1 < BOARDSIZE && col + 2 < BOARDSIZE && board[row+1][col+2] == 0) {
-            moveKnight(row + 1, col + 2, moveNum + 1);
+            successfulMove = moveKnight(row + 1, col + 2, moveNum + 1);
             if (!successfulMove) {
                 board[row + 1][col + 2] = 0;
                 //outputBoard();
@@ -103,7 +107,7 @@ bool moveKnight(int row, int col, int moveNum)
         }
 
         if (row + 2 < BOARDSIZE && col + 1 < BOARDSIZE && board[row+2][col+1] == 0) {
-            moveKnight(row + 2, col + 1, moveNum + 1);
+            successfulMove = moveKnight(row + 2, col + 1, moveNum + 1);
             if (!successfulMove) {
                 board[row + 2][col + 1] = 0;
                 //outputBoard();
@@ -111,7 +115,7 @@ bool moveKnight(int row, int col, int moveNum)
         }
 
         if (row + 2 < BOARDSIZE && col - 1 >= 0 && board[row+2][col-1] == 0) {
-            moveKnight(row + 2, col - 1, moveNum + 1);
+            successfulMove = moveKnight(row + 2, col - 1, moveNum + 1);
             if (!successfulMove) {
                 board[row + 2][col - 1] = 0;
                 //outputBoard();
@@ -119,15 +123,14 @@ bool moveKnight(int row, int col, int moveNum)
         }
 
         if (row + 1 < BOARDSIZE && col - 2 >= 0 && board[row+1][col-2] == 0) {
-            moveKnight(row + 1, col - 20, moveNum + 1);
+            successfulMove = moveKnight(row + 1, col - 2, moveNum + 1);
             if (!successfulMove) {
                 board[row + 1][col - 2] = 0;
                 //outputBoard();
             }
         }
 
-        if (moveNum == 64 || done) {
-            done = true;
+        if (done) {
             return true;
         }
         else {
@@ -158,7 +161,6 @@ int main()
     cout << "Here's the solution" << endl;
     outputBoard();                  // Output the solution.
 
-    system("pause");
     return 0;
 }
 
