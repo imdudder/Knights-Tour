@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Knights_Tour_Puzzle.dir/main.cpp.o  -o Knights_Tour_Puzzle.exe -Wl,--out-implib,libKnights_Tour_Puzzle.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
