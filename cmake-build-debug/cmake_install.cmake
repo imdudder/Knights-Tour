@@ -1,4 +1,4 @@
-# Install script for directory: /cygdrive/c/Users/Papa Uzziel/Desktop/Programs/GitHub-Submissions/Knights-Tour-Puzzle
+# Install script for directory: /cygdrive/c/Users/Papa Uzziel/Desktop/Programs/GitHub-Submissions/Knights-Tour-Puzzle/Knights-Tour
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/cygdrive/c/Users/Papa Uzziel/Desktop/Programs/GitHub-Submissions/Knights-Tour-Puzzle/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/cygdrive/c/Users/Papa Uzziel/Desktop/Programs/GitHub-Submissions/Knights-Tour-Puzzle/Knights-Tour/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

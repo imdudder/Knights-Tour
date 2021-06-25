@@ -35,8 +35,6 @@ int board[BOARDSIZE][BOARDSIZE] = { { 0, 0, 0, 0, 0, 0, 0, 0 },
 // Post-condition: prints the chessboard to console.
 void outputBoard()
 {
-    cout << "It was solved after " << tries << " tries" << endl;
-    cout << "Here's the solution" << endl;
     for (int row = 0; row < BOARDSIZE; row++) {
         for (int col = 0; col < BOARDSIZE; col++) {
             cout << setw(3) << board[row][col];
@@ -59,47 +57,81 @@ bool moveKnight(int row, int col, int moveNum)
     // Make sure current coordinates are on the board
     if (row >= 0 && row < BOARDSIZE && col >= 0 && col < BOARDSIZE) {
         board[row][col] = moveNum;                      // Mark the current move
-        outputBoard();
+        //outputBoard();
         tries++;                                        // Increment try counter
-        bool successfulMove = true;
+        bool successfulMove = false;
 
         // Try next move
         if (row - 1 >= 0 && col - 2 >= 0 && board[row-1][col-2] == 0) {
-            moveKnight(row - 1,col - 2,moveNum + 1);
+            successfulMove = moveKnight(row - 1,col - 2,moveNum + 1);
+            if (!successfulMove) {
+                board[row - 1][col - 2] = 0;
+                //outputBoard();
+            }
         }
 
         if (row - 2 >= 0 && col - 1 >= 0 && board[row-2][col-1] == 0) {
             moveKnight(row - 2, col - 1, moveNum + 1);
+            if (!successfulMove) {
+                board[row - 2][col - 1] = 0;
+                //outputBoard();
+            }
         }
 
         if (row - 2 >= 0 && col + 1 < BOARDSIZE && board[row-2][col+1] == 0) {
             moveKnight(row - 2, col + 1, moveNum + 1);
+            if (!successfulMove) {
+                board[row - 2][col + 1] = 0;
+                //outputBoard();
+            }
         }
 
         if (row - 1 >= 0 && col + 2 < BOARDSIZE && board[row-1][col+2] == 0) {
             moveKnight(row - 1, col + 2, moveNum + 1);
+            if (!successfulMove) {
+                board[row - 1][col + 2] = 0;
+                //outputBoard();
+            }
         }
 
         if (row + 1 < BOARDSIZE && col + 2 < BOARDSIZE && board[row+1][col+2] == 0) {
             moveKnight(row + 1, col + 2, moveNum + 1);
+            if (!successfulMove) {
+                board[row + 1][col + 2] = 0;
+                //outputBoard();
+            }
         }
 
         if (row + 2 < BOARDSIZE && col + 1 < BOARDSIZE && board[row+2][col+1] == 0) {
             moveKnight(row + 2, col + 1, moveNum + 1);
+            if (!successfulMove) {
+                board[row + 2][col + 1] = 0;
+                //outputBoard();
+            }
         }
 
         if (row + 2 < BOARDSIZE && col - 1 >= 0 && board[row+2][col-1] == 0) {
             moveKnight(row + 2, col - 1, moveNum + 1);
+            if (!successfulMove) {
+                board[row + 2][col - 1] = 0;
+                //outputBoard();
+            }
         }
 
-        if (row + 1 < BOARDSIZE && col - 2 >= 0 && board[row+2][col+1] == 0) {
-            moveKnight(row + 2, col + 1, moveNum + 1);
+        if (row + 1 < BOARDSIZE && col - 2 >= 0 && board[row+1][col-2] == 0) {
+            moveKnight(row + 1, col - 20, moveNum + 1);
+            if (!successfulMove) {
+                board[row + 1][col - 2] = 0;
+                //outputBoard();
+            }
         }
 
-
-        if (moveNum == 64) {
+        if (moveNum == 64 || done) {
             done = true;
             return true;
+        }
+        else {
+            return false;
         }
     }
     else {
@@ -121,6 +153,9 @@ int main()
     cin >> col;
 
     moveKnight(row, col, movNum);   // Call the function to solve the puzzle.
+
+    cout << "It was solved after " << tries << " tries" << endl;
+    cout << "Here's the solution" << endl;
     outputBoard();                  // Output the solution.
 
     system("pause");

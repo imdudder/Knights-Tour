@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/Papa Uzziel/Desktop/Programs/GitHub-Submissions/Knights-Tour-Puzzle/main.cpp" "/cygdrive/c/Users/Papa Uzziel/Desktop/Programs/GitHub-Submissions/Knights-Tour-Puzzle/cmake-build-debug/CMakeFiles/Knights_Tour_Puzzle.dir/main.cpp.o"
+  "/cygdrive/c/Users/Papa Uzziel/Desktop/Programs/GitHub-Submissions/Knights-Tour-Puzzle/Knights-Tour/main.cpp" "/cygdrive/c/Users/Papa Uzziel/Desktop/Programs/GitHub-Submissions/Knights-Tour-Puzzle/Knights-Tour/cmake-build-debug/CMakeFiles/Knights_Tour_Puzzle.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
