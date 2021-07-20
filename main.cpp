@@ -61,32 +61,28 @@ bool moveKnight(int row, int col, int moveNum)
             done = true;
             return true;
         }
-        //outputBoard();
         tries++;                                        // Increment try counter
         bool successfulMove = false;
 
         // Try next move
-        if (row - 1 >= 0 && col - 2 >= 0 && board[row-1][col-2] == 0) {
+        if (row - 1 >= 0 && col - 2 >= 0 && board[row - 1][col - 2] == 0) {
             successfulMove = moveKnight(row - 1,col - 2,moveNum + 1);
             if (!successfulMove) {
                 board[row - 1][col - 2] = 0;
-                //outputBoard();
             }
         }
 
-        if (row - 2 >= 0 && col - 1 >= 0 && board[row-2][col-1] == 0) {
+        if (row - 2 >= 0 && col - 1 >= 0 && board[row - 2][col - 1] == 0) {
             successfulMove = moveKnight(row - 2, col - 1, moveNum + 1);
             if (!successfulMove) {
                 board[row - 2][col - 1] = 0;
-                //outputBoard();
             }
         }
 
-        if (row - 2 >= 0 && col + 1 < BOARDSIZE && board[row-2][col+1] == 0) {
+        if (row - 2 >= 0 && col + 1 < BOARDSIZE && board[row - 2][col + 1] == 0) {
             successfulMove = moveKnight(row - 2, col + 1, moveNum + 1);
             if (!successfulMove) {
                 board[row - 2][col + 1] = 0;
-                //outputBoard();
             }
         }
 
@@ -94,39 +90,34 @@ bool moveKnight(int row, int col, int moveNum)
             successfulMove = moveKnight(row - 1, col + 2, moveNum + 1);
             if (!successfulMove) {
                 board[row - 1][col + 2] = 0;
-                //outputBoard();
             }
         }
 
-        if (row + 1 < BOARDSIZE && col + 2 < BOARDSIZE && board[row+1][col+2] == 0) {
+        if (row + 1 < BOARDSIZE && col + 2 < BOARDSIZE && board[row + 1][col + 2] == 0) {
             successfulMove = moveKnight(row + 1, col + 2, moveNum + 1);
             if (!successfulMove) {
                 board[row + 1][col + 2] = 0;
-                //outputBoard();
             }
         }
 
-        if (row + 2 < BOARDSIZE && col + 1 < BOARDSIZE && board[row+2][col+1] == 0) {
+        if (row + 2 < BOARDSIZE && col + 1 < BOARDSIZE && board[row + 2][col + 1] == 0) {
             successfulMove = moveKnight(row + 2, col + 1, moveNum + 1);
             if (!successfulMove) {
                 board[row + 2][col + 1] = 0;
-                //outputBoard();
             }
         }
 
-        if (row + 2 < BOARDSIZE && col - 1 >= 0 && board[row+2][col-1] == 0) {
+        if (row + 2 < BOARDSIZE && col - 1 >= 0 && board[row + 2][col - 1] == 0) {
             successfulMove = moveKnight(row + 2, col - 1, moveNum + 1);
             if (!successfulMove) {
                 board[row + 2][col - 1] = 0;
-                //outputBoard();
             }
         }
 
-        if (row + 1 < BOARDSIZE && col - 2 >= 0 && board[row+1][col-2] == 0) {
+        if (row + 1 < BOARDSIZE && col - 2 >= 0 && board[row + 1][col - 2] == 0) {
             successfulMove = moveKnight(row + 1, col - 2, moveNum + 1);
             if (!successfulMove) {
                 board[row + 1][col - 2] = 0;
-                //outputBoard();
             }
         }
 
@@ -169,15 +160,15 @@ int main()
 
 //======================Program Output=======================
 //
-// It was solved after 22694455 tries
+// It was solved after 251825407 tries
 // Here's the solution
-// 1 38 55 34  3 36 19 22
-// 54 47  2 37 20 23  4 17
-// 39 56 33 46 35 18 21 10
-// 48 53 40 57 24 11 16  5
-// 59 32 45 52 41 26  9 12
-// 44 49 58 25 62 15  6 27
-// 31 60 51 42 29  8 13 64
-// 50 43 30 61 14 63 28  7
+//  1  8 11 16  3 18 13 64
+// 10 27  2  7 12 15  4 19
+// 53 24  9 28 17  6 63 14
+// 26 39 52 23 62 29 20  5
+// 43 54 25 38 51 22 33 30
+// 40 57 42 61 32 35 48 21
+// 55 44 59 50 37 46 31 34
+// 58 41 56 45 60 49 36 47
 //
 // Press any key to continue . . .
